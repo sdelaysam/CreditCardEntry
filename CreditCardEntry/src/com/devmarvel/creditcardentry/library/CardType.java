@@ -21,20 +21,19 @@ class CardRegex {
     static final String REGX_DISCOVER_TYPE = "^6(?:011|5[0-9]{2})$"; // Discover 16
     static final String REGX_DINERS_CLUB_TYPE = "^3(?:0[0-5]|[68][0-9])[0-9]$"; // DinersClub 14
     static final String REGX_JCB_TYPE = "^35[0-9]{2}$"; // JCB 15
-
 }
 
 /**
  * represents the type of card the user used
  */
 public enum CardType implements Serializable {
-    VISA("VISA", R.drawable.visa, CardRegex.REGX_VISA, CardRegex.REGX_VISA_TYPE),
-    MASTERCARD("MasterCard", R.drawable.master_card, CardRegex.REGX_MC, CardRegex.REGX_MC_TYPE),
-    AMEX("American Express", R.drawable.amex, CardRegex.REGX_AMEX, CardRegex.REGX_AMEX_TYPE),
-    DISCOVER("Discover", R.drawable.discover, CardRegex.REGX_DISCOVER, CardRegex.REGX_DISCOVER_TYPE),
-    DINERS("DinersClub",R.drawable.diners_club,CardRegex.REGX_DINERS_CLUB,CardRegex.REGX_DINERS_CLUB_TYPE),
-    JCB("JCB",R.drawable.jcb_payment_ico,CardRegex.REGX_JCB,CardRegex.REGX_JCB_TYPE),
-    INVALID("Unknown", R.drawable.unknown_cc, null, null);
+  VISA(       "VISA",             R.drawable.visa,            CardRegex.REGX_VISA,        CardRegex.REGX_VISA_TYPE),
+  MASTERCARD( "MasterCard",       R.drawable.master_card,     CardRegex.REGX_MC,          CardRegex.REGX_MC_TYPE),
+  AMEX(       "American Express", R.drawable.amex,            CardRegex.REGX_AMEX,        CardRegex.REGX_AMEX_TYPE),
+  DISCOVER(   "Discover",         R.drawable.discover,        CardRegex.REGX_DISCOVER,    CardRegex.REGX_DISCOVER_TYPE),
+  DINERS_CLUB("DinersClub",       R.drawable.diners_club,     CardRegex.REGX_DINERS_CLUB, CardRegex.REGX_DINERS_CLUB_TYPE),
+    JCB      ("JCB",              R.drawable.jcb_payment_ico, CardRegex.REGX_JCB,         CardRegex.REGX_JCB_TYPE),
+  INVALID(    "Unknown",          R.drawable.unknown_cc,      null,       null);
 
   /** name for humans */
     public final String name;
