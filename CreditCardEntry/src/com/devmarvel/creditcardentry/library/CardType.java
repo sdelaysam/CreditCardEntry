@@ -23,10 +23,11 @@ class CardRegex {
  * represents the type of card the user used
  */
 public enum CardType {
-  VISA(       "VISA",             R.drawable.visa,        CardRegex.REGX_VISA,     CardRegex.REGX_VISA_TYPE),
-  MASTERCARD( "MasterCard",       R.drawable.master_card, CardRegex.REGX_MC,       CardRegex.REGX_MC_TYPE),
-  AMEX(       "American Express", R.drawable.amex,        CardRegex.REGX_AMEX,     CardRegex.REGX_AMEX_TYPE),
-  DISCOVER(   "Discover",         R.drawable.discover,    CardRegex.REGX_DISCOVER, CardRegex.REGX_DISCOVER_TYPE),
+  VISA(       "VISA",             R.drawable.visa,        CardRegex.REGX_VISA,        CardRegex.REGX_VISA_TYPE),
+  MASTERCARD( "MasterCard",       R.drawable.master_card, CardRegex.REGX_MC,          CardRegex.REGX_MC_TYPE),
+  AMEX(       "American Express", R.drawable.amex,        CardRegex.REGX_AMEX,        CardRegex.REGX_AMEX_TYPE),
+  DISCOVER(   "Discover",         R.drawable.discover,    CardRegex.REGX_DISCOVER,    CardRegex.REGX_DISCOVER_TYPE),
+  DINERS_CLUB("Diners Club",      R.drawable.diners_club, CardRegex.REGX_DINERS_CLUB, CardRegex.REGX_DINERS_CLUB_TYPE),
   INVALID(    "Unknown",          R.drawable.unknown_cc,  null,       null);
 
   /** name for humans */
