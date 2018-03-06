@@ -70,10 +70,8 @@ public class CreditCardText extends CreditEntryFieldBase {
 			delegate.onCardTypeChange(type);
 		}
 		this.type = type;
-		Log.e("Card type:", this.type.toString());
 
 		String formatted = CreditCardUtil.formatForViewing(number, type);
-		Log.e("Formatted:", formatted);
 		if (!number.equalsIgnoreCase(formatted)) {
 			this.removeTextChangedListener(this);
 			this.setText(formatted);

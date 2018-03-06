@@ -41,6 +41,8 @@ public abstract class CreditEntryFieldBase extends EditText implements
 
     String lastValue = null;
 
+    private boolean empty = true;
+
     private boolean valid = false;
 
     public CreditEntryFieldBase(Context context) {
@@ -97,11 +99,12 @@ public abstract class CreditEntryFieldBase extends EditText implements
 	@Override
 	public void onTextChanged(CharSequence s, int start, int before, int end) {
 		if (start == 0 && before == 1 && s.length() == 0) {
-			if (delegate != null) {
-				delegate.focusOnPreviousField(this);
-			}
+//			if (delegate != null) {
+//				delegate.focusOnPreviousField(this);
+//			}
 		} else {
 			String tmp = String.valueOf(s);
+			empty = tmp.isEmpty();
 			if (!tmp.equals(lastValue)) {
 				lastValue = tmp;
 				textChanged(s, start, before, end);
@@ -136,9 +139,13 @@ public abstract class CreditEntryFieldBase extends EditText implements
 
 		if (keyCode == KeyEvent.KEYCODE_DEL
 				&& this.getText().toString().length() == 0) {
-			if (delegate != null) {
-				delegate.focusOnPreviousField(this);
-			}
+		    if (empty) {
+                if (delegate != null) {
+                    delegate.focusOnPreviousField(this);
+                }
+            } else {
+		        empty = true;
+            }
 		}
 		return false;
 	}
@@ -171,9 +178,11 @@ public abstract class CreditEntryFieldBase extends EditText implements
 
 	private void backInput() {
 		if (this.getText().toString().length() == 0) {
-			if (delegate != null) {
-				delegate.focusOnPreviousField(this);
-			}
+		    if (empty) {
+                if (delegate != null) {
+                    delegate.focusOnPreviousField(this);
+                }
+            }
 		}
 	}
 
