@@ -44,6 +44,8 @@ public class ExpDateText extends CreditEntryFieldBase {
 		// if delete occurred do not format
 		if (updatedString.length() > previousString.length()) {
 			formatAndSetText(updatedString);
+		} else {
+			setValid(false);
 		}
 	}
 

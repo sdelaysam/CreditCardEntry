@@ -372,6 +372,11 @@ public class CreditCardEntry extends HorizontalScrollView implements
         }
     }
 
+    @Override
+    public void onFieldValidChanged(CreditEntryFieldBase field, boolean valid) {
+
+    }
+
     public void setCardNumberHint(String hint) {
         creditCardText.setHint(hint);
     }
@@ -465,6 +470,7 @@ public class CreditCardEntry extends HorizontalScrollView implements
             @Override public void onZipCodeValid() { }
             @Override public void focusOnField(CreditEntryFieldBase field, String initialValue) { }
             @Override public void focusOnPreviousField(CreditEntryFieldBase field) { }
+            @Override public void onFieldValidChanged(CreditEntryFieldBase field, boolean valid) {}
         };
     }
 
@@ -540,7 +546,15 @@ public class CreditCardEntry extends HorizontalScrollView implements
     private void entryComplete(View clearField) {
         hideKeyboard();
         clearField.clearFocus();
-        if (onCardValidCallback != null) onCardValidCallback.cardValid(getCreditCard());
+        if (onCardValidCallback != null) {
+            boolean isValid = creditCardText.isValid()
+                    && (!includedFields.contains(expDateText) || expDateText.isValid())
+                    && (!includedFields.contains(securityCodeText) || securityCodeText.isValid())
+                    && (!includedFields.contains(zipCodeText) || zipCodeText.isValid());
+            if (isValid) {
+                onCardValidCallback.cardValid(getCreditCard());
+            }
+        }
     }
 
     private void updateCardImage(boolean back) {

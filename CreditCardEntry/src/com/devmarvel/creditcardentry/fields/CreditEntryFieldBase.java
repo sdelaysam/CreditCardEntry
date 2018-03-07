@@ -173,7 +173,12 @@ public abstract class CreditEntryFieldBase extends EditText implements
 	}
 
 	void setValid(boolean valid) {
-		this.valid = valid;
+	    if (this.valid != valid) {
+            this.valid = valid;
+            if (delegate != null) {
+                delegate.onFieldValidChanged(this, valid);
+            }
+        }
 	}
 
 	private void backInput() {

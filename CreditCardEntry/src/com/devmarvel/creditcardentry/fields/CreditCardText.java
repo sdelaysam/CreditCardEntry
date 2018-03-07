@@ -52,6 +52,7 @@ public class CreditCardText extends CreditEntryFieldBase {
 		} else {
 			if (this.type != null) {
 				this.type = null;
+				setValid(false);
 				delegate.onCardTypeChange(CardType.INVALID);
 			}
 		}

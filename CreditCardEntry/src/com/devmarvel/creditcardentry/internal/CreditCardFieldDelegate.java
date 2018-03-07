@@ -28,4 +28,6 @@ public interface CreditCardFieldDelegate {
   void focusOnField(CreditEntryFieldBase field, String initialValue);
 
   void focusOnPreviousField(CreditEntryFieldBase field);
+
+  void onFieldValidChanged(CreditEntryFieldBase field, boolean valid);
 }
