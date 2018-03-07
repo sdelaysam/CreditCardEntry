@@ -45,7 +45,9 @@ public class ExpDateText extends CreditEntryFieldBase {
 		if (updatedString.length() > previousString.length()) {
 			formatAndSetText(updatedString);
 		} else {
-			setValid(false);
+			if (isValid() && updatedString.length() < 5) {
+				setValid(false);
+			}
 		}
 	}
 

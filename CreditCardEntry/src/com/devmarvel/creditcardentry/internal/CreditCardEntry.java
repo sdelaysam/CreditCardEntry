@@ -546,15 +546,7 @@ public class CreditCardEntry extends HorizontalScrollView implements
     private void entryComplete(View clearField) {
         hideKeyboard();
         clearField.clearFocus();
-        if (onCardValidCallback != null) {
-            boolean isValid = creditCardText.isValid()
-                    && (!includedFields.contains(expDateText) || expDateText.isValid())
-                    && (!includedFields.contains(securityCodeText) || securityCodeText.isValid())
-                    && (!includedFields.contains(zipCodeText) || zipCodeText.isValid());
-            if (isValid) {
-                onCardValidCallback.cardValid(getCreditCard());
-            }
-        }
+        if (onCardValidCallback != null) onCardValidCallback.cardValid(getCreditCard());
     }
 
     private void updateCardImage(boolean back) {
